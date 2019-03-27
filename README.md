@@ -7,7 +7,8 @@ This system will compute a set of image representations (tiny image and bag-of-w
 You can download the training and testing data from here:
 http://www.cs.umn.edu/~hspark/csci5561/scene_classification_data.zip
 
-Output example for ClassifyKNN_Tiny:
+Output example of Confusion Matrix and Accuracy from for ClassifyKNN_Tiny:
+
 confusion =
 
     15     1     2     2    16    10     1     4     1     6     3     2    20    17     0
