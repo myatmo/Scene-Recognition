@@ -25,5 +25,5 @@ des_list = im2double(des_list); % convert to double
 %3: Find cluster centers from the SIFT pool using kmeans algorithms and
 %   return the cluster centers as vocab.
 [idx, vocab] = kmeans(des_list, dic_size);
-whos idx
-whos vocab
+
+
