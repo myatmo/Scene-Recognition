@@ -1,0 +1,3 @@
+[coeff, score] = pca(a);
+reducedDimension = coeff(1:50,:);
+reducedData = a * reducedDimension;
