@@ -1,8 +1,8 @@
-function [confusion, accuracy] = ClassifyKNN_BoW
+function [confusion, accuracy] = ClassifySVM_BoW
 %Output: confusion is a 15 × 15 confusion matrix and accuracy is the accuracy of the
 %testing data prediction.
 %Description: Given BoW features, you will combine BuildVisualDictionary, ComputeBoW,
-%and PredictKNN for scene classification. Your goal is to achieve the accuracy >50%.
+%PredictSVM for scene classification. Your goal is to achieve the accuracy >60%.
 
 % Load training and testing images from scene_classification_data folder
 scene = "scene_classification_data";
@@ -52,7 +52,7 @@ end
 
 % BuildVisualDictionary
 dic_size = 50;
-vocab = BuildVisualDictionary(training_image_cell, dic_size);
+%vocab = BuildVisualDictionary(training_image_cell, dic_size);
 
 % ComputeBoW for each image
 step = 10;
@@ -75,16 +75,13 @@ for i = 1:length(path_test)
    feature_test = [feature_test; bow_feature'];
 end
 
-% predict label test using KNN classifier
-k = 10; % number of neighbours
-label_test_pred = PredictKNN(feature_train, label_train, feature_test, k);
-label_test_pred = string(label_test_pred); % convert cell array to string
+% predict label test using SVM
+label_test_pred = PredictSVM(feature_train, label_train, feature_test);
 
 % confusion matrix
 confusion = confusionmat(label_test, label_test_pred);
 
 % calculating accuracy
 accuracy = sum(diag(confusion)) / sum(sum(confusion));
-
 
 
